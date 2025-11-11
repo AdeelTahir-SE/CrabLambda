@@ -4,5 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+actix-web = "4.11.0"
 duckdb = { version = "1.4.1", features = ["bundled"] }
-rdkafka = "0.38.0"
+# rdkafka = {version="0.38.0"}
+uuid={ version = "1.18.1", features = ["v4"] }
+redis = "0.26"   # latest stable version
+dotenvy = "0.15.7"
+

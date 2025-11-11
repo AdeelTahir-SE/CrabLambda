@@ -1,9 +1,10 @@
 use duckdb::{params,Connection,Result};
-
-pub fn insert_file_functions_data(conn:&Connection,name:&str,sql:&str) -> Result<()> {
+use crate::utils::uuid_generator::generate_random_uid;
+pub fn insert_table_user(conn:&Connection,name:&str,password:&str,email:&str) -> Result<()> {
+    let uuid=generate_random_uid();
     conn.execute(
-        "INSERT INTO file_functions (name, sql) VALUES (?, ?)",
-        params![name, sql],
+        "INSERT INTO User (id,username, password,email) VALUES (?, ?,?,?)",
+        params![uuid,name, password,email],
     )?;
     Ok(())
 }

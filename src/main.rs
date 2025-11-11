@@ -1,6 +1,16 @@
 mod db;
-use db::file_db::{connect_file_db, insert_file_functions};
-fn main() {
-    let connection = connect_file_db().unwrap();
-    insert_file_functions::insert_file_functions_data(&connection, "test", "select 1").unwrap();
+mod server;
+mod utils;
+use actix_web::{
+    middleware::from_fn,
+    {App, HttpServer},
+};
+use server::middleware;
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| App::new().wrap(from_fn(middleware::verify_api_key)))
+        .bind(("127.0.0.1", 8080))?
+        .run()
+        .await
 }
