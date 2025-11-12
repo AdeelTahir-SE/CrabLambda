@@ -670,6 +670,7 @@ dependencies = [
  "dotenvy",
  "duckdb",
  "redis",
+ "serde",
  "uuid",
 ]
 
