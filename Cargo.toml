@@ -11,4 +11,5 @@ uuid={ version = "1.18.1", features = ["v4"] }
 redis = "0.26"   # latest stable version
 dotenvy = "0.15.7"
 serde = "1.0.228"
+anyhow = "1.0.100"
 
