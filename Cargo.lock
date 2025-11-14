@@ -678,6 +678,7 @@ dependencies = [
  "duckdb",
  "redis",
  "serde",
+ "serde_json",
  "uuid",
 ]
 

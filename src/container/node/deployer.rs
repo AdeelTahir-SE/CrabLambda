@@ -1,7 +1,8 @@
 use std::process::Command;
 use crate::utils::operating_system;
 use  anyhow::Result;
-pub fn initialize_node_container(packages: &[&str],port: &str,function: &str)->Result<()>{
+
+pub fn initialize_node_container(packages: Vec<&str>,port: &str,function: &str)->Result<()>{
     let operating_system=operating_system::check_os();
     let mut node_type="node:20-alpine";
     match operating_system.as_str() {
